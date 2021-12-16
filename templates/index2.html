@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" >
+
+{% if count_of_elements %}
+<div class="alert alert-success" role="alert">
+  <strong>{{count_of_elements}}</strong> of
+  <strong>{{element_total}}</strong> friends details being scrapped.
+</div>
+{% endif %}
+
+<form method="POST">
+			{% csrf_token %}
+    <br><br>
+    <div class="form-group" align="center"><label style="color: crimson"><h4>FRIENDS OF FRIEND EXTRACTOR|LINKEDIN</h4></label></div>
+    <div class="form-group"><label style="color: darkgreen">* Write your mail id and password of your linkedin profile , along with the link of the person who is already connected in your profile .By this,you would be able to get all the connections of his profile.</label></div>
+
+		<div class="form-group" >
+            <label for="unique_id_of_email"><h4>Email address:</h4></label>
+            <input id= "unique_id_of_email"  name='uid' type="text" class="form-control" placeholder="Enter email"></input>
+		</div>
+        <br>
+        <div class="form-group">
+            <label for="pwd"><h4>Password:</h4></label>
+            <input id='pwd' name='pass' type="password" class="form-control" placeholder="Enter password"></input>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="connect_people"><h4>Write the profile link,whose connections you want:</h4></label>
+            <input id='connect_people' name='connectionlink' type="text" class="form-control" placeholder="Write link"></input>
+        </div>
+        <br>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+</form>
+</div>
+</body>
+</html>
